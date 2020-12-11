@@ -1,6 +1,8 @@
 <script context="module">
   export async function preload() {
-    const result = await this.fetch('http://localhost:1337/Products');
+    const result = await this.fetch(
+      'https://strapi-mongodb-artstore.herokuapp.com/Products'
+    );
     const data = await result.json();
     return { products: data };
   }
@@ -9,6 +11,7 @@
 <script>
   import Cart from '../../components/Cart.svelte';
   import Image from 'svelte-image';
+
   export let products;
 </script>
 
@@ -52,7 +55,9 @@
 
     <!-- Product listing -->
     <li class="product-listing">
-      <Image src="http://localhost:1337{product.image.url}" alt="" />
+      <Image
+        src="https://strapi-mongodb-artstore.herokuapp.com{product.image[0].url}"
+        alt="" />
       <div />
       <a
         class="link"

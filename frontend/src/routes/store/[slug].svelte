@@ -3,7 +3,7 @@
     // the `slug` parameter is available because
     // this file is called [slug].svelte
     const res = await this.fetch(
-      `http://localhost:1337/products/?slug=${params.slug}`
+      `https://strapi-mongodb-artstore.herokuapp.com/products/?slug=${params.slug}`
     );
     const data = await res.json();
 
@@ -18,7 +18,6 @@
 <script>
   import Image from 'svelte-image';
   export let product;
-  console.log(product);
 </script>
 
 <style>
@@ -78,7 +77,9 @@
 
 <div class="product-container">
   <div class="product-image">
-    <Image src="http://localhost:1337{product.image.url}" alt={product.title} />
+    <Image
+      src="https://strapi-mongodb-artstore.herokuapp.com{product.image[0].url}"
+      alt={product.title} />
   </div>
 
   <div class="product-info">
