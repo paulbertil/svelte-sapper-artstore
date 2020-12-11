@@ -1,3 +1,9 @@
+<style>
+  p {
+    max-width: 35em;
+  }
+</style>
+
 <svelte:head>
   <title>Contact</title>
 </svelte:head>

@@ -4,7 +4,7 @@
   let stripeReady = false;
   let mounted = false;
 
-  onMount(async () => {
+  onMount(() => {
     mounted = true;
     console.log('hi');
     if (stripeReady) {
@@ -12,12 +12,12 @@
     }
   });
 
-  function stripeLoaded() {
+  const stripeLoaded = () => {
     stripeReady = true;
     if (mounted) {
       loadStripeElements();
     }
-  }
+  };
 
   function loadStripeElements() {
     const stripe = new Stripe('pk_test_rdW6s8iBpSDJYI7aeUVkFtfY00iYnnPo7R');
@@ -45,8 +45,9 @@
 
 <svelte:head>
   <title>Cart</title>
-  <script src="https://js.stripe.com/v3/" on:load={stripeLoaded()}>
+  <script src="https://js.stripe.com/v3/" on:load={stripeLoaded}>
   </script>
 </svelte:head>
 
-<h1>Cart Page</h1>
+<h1>Dear Visitor</h1>
+<p>This is the 'cart' page. There's not much here yet.</p>

@@ -57,9 +57,9 @@
   .btn {
     padding: 1rem 1.5rem;
     border: none;
-    border-radius: 8px;
     font-weight: 700;
     margin-top: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
   }
 
