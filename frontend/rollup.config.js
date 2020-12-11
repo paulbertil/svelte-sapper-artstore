@@ -9,6 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import image from "svelte-image";
+import json from '@rollup/plugin-json';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -36,6 +37,7 @@ export default {
 					...image(),
 				}
 			}),
+
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
 				publicPath: '/client/'
@@ -45,6 +47,7 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
+			json(),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
